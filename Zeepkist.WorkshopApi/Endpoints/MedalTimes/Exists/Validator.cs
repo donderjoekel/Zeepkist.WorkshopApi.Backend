@@ -1,4 +1,4 @@
-﻿namespace Zeepkist.WorkshopApi.Endpoints.MedalTimes.Exists;
+﻿namespace TNRD.Zeepkist.WorkshopApi.Endpoints.MedalTimes.Exists;
 
 public class Validator : Validator<RequestModel>
 {

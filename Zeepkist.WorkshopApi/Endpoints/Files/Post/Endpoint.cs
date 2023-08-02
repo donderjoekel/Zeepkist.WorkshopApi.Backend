@@ -1,11 +1,11 @@
 ﻿using FluentResults;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Zeepkist.WorkshopApi.Db;
-using Zeepkist.WorkshopApi.Db.Models;
-using Zeepkist.WorkshopApi.Google;
-using Zeepkist.WorkshopApi.ResponseModels;
+using TNRD.Zeepkist.WorkshopApi.Db;
+using TNRD.Zeepkist.WorkshopApi.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.Google;
+using TNRD.Zeepkist.WorkshopApi.ResponseModels;
 
-namespace Zeepkist.WorkshopApi.Endpoints.Files.Post;
+namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Files.Post;
 
 public class Endpoint : Endpoint<RequestModel, FileResponseModel>
 {

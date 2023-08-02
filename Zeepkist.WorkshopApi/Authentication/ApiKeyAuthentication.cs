@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 
-namespace Zeepkist.WorkshopApi.Authentication;
+namespace TNRD.Zeepkist.WorkshopApi.Authentication;
 
 public class ApiKeyAuthentication : AuthenticationHandler<AuthenticationSchemeOptions>
 {

@@ -1,13 +1,12 @@
 using System.Text.Json;
-using FastEndpoints.Security;
 using FastEndpoints.Swagger;
 using Microsoft.AspNetCore.Authentication;
 using NSwag;
 using Serilog;
-using Zeepkist.WorkshopApi.Authentication;
-using Zeepkist.WorkshopApi.Db;
-using Zeepkist.WorkshopApi.Extensions;
-using Zeepkist.WorkshopApi.Google;
+using TNRD.Zeepkist.WorkshopApi.Authentication;
+using TNRD.Zeepkist.WorkshopApi.Db;
+using TNRD.Zeepkist.WorkshopApi.Extensions;
+using TNRD.Zeepkist.WorkshopApi.Google;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -81,7 +80,7 @@ using (IServiceScope serviceScope = app.Services.CreateScope())
 
 await app.RunAsync();
 
-namespace Zeepkist.WorkshopApi
+namespace TNRD.Zeepkist.WorkshopApi
 {
     public partial class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace Zeepkist.WorkshopApi.Google;
+﻿namespace TNRD.Zeepkist.WorkshopApi.Google;
 
 internal class GoogleOptions
 {

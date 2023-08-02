@@ -1,4 +1,4 @@
-﻿namespace Zeepkist.WorkshopApi.Endpoints.Files.GetByHash;
+﻿namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Files.GetByHash;
 
 public class RequestModel
 {

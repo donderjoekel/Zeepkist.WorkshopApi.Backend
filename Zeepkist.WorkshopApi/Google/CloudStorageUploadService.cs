@@ -6,7 +6,7 @@ using Google.Cloud.Storage.V1;
 using Microsoft.Extensions.Options;
 using Object = Google.Apis.Storage.v1.Data.Object;
 
-namespace Zeepkist.WorkshopApi.Google;
+namespace TNRD.Zeepkist.WorkshopApi.Google;
 
 internal class CloudStorageUploadService : IUploadService
 {

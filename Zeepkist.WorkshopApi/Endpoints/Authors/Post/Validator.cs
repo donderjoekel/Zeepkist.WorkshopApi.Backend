@@ -1,6 +1,4 @@
-﻿using Zeepkist.WorkshopApi.RequestModels;
-
-namespace Zeepkist.WorkshopApi.Endpoints.Authors.Post;
+﻿namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Authors.Post;
 
 public class Validator : Validator<RequestModel>
 {

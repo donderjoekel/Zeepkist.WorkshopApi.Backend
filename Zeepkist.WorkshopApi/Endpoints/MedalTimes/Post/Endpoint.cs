@@ -1,10 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Zeepkist.WorkshopApi.Db;
-using Zeepkist.WorkshopApi.Db.Models;
-using Zeepkist.WorkshopApi.RequestModels;
-using Zeepkist.WorkshopApi.ResponseModels;
+using TNRD.Zeepkist.WorkshopApi.Db;
+using TNRD.Zeepkist.WorkshopApi.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.ResponseModels;
 
-namespace Zeepkist.WorkshopApi.Endpoints.MedalTimes.Post;
+namespace TNRD.Zeepkist.WorkshopApi.Endpoints.MedalTimes.Post;
 
 public class Endpoint : Endpoint<RequestModel, MedalsResponseModel>
 {

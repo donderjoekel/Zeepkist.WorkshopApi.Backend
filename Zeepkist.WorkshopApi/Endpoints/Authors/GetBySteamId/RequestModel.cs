@@ -1,4 +1,4 @@
-﻿namespace Zeepkist.WorkshopApi.Endpoints.Authors.GetBySteamId;
+﻿namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Authors.GetBySteamId;
 
 public class RequestModel
 {

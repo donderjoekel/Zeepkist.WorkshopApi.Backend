@@ -1,4 +1,4 @@
-﻿namespace Zeepkist.WorkshopApi.Db.Models;
+﻿namespace TNRD.Zeepkist.WorkshopApi.Db.Models;
 
 public partial class AuthorModel
 {

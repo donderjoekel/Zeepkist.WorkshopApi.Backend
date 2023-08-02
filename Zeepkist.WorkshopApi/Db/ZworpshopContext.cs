@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Zeepkist.WorkshopApi.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.Db.Models;
 
-namespace Zeepkist.WorkshopApi.Db;
+namespace TNRD.Zeepkist.WorkshopApi.Db;
 
 public partial class ZworpshopContext : DbContext
 {

@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TNRD.Zeepkist.WorkshopApi.Db;
+using TNRD.Zeepkist.WorkshopApi.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.RequestModels;
+using TNRD.Zeepkist.WorkshopApi.ResponseModels;
 
-using Zeepkist.WorkshopApi.Db;
-using Zeepkist.WorkshopApi.Db.Models;
-using Zeepkist.WorkshopApi.RequestModels;
-using Zeepkist.WorkshopApi.ResponseModels;
-
-namespace Zeepkist.WorkshopApi.Endpoints.Files.Get;
+namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Files.Get;
 
 public class Endpoint : Endpoint<IdRequestModel, FileResponseModel>
 {

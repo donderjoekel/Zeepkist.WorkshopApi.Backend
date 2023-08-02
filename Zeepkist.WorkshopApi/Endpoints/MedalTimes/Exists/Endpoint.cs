@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Zeepkist.WorkshopApi.Db;
-using Zeepkist.WorkshopApi.Db.Models;
-using Zeepkist.WorkshopApi.ResponseModels;
+using TNRD.Zeepkist.WorkshopApi.Db;
+using TNRD.Zeepkist.WorkshopApi.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.ResponseModels;
 
-namespace Zeepkist.WorkshopApi.Endpoints.MedalTimes.Exists;
+namespace TNRD.Zeepkist.WorkshopApi.Endpoints.MedalTimes.Exists;
 
 public class Endpoint : Endpoint<RequestModel, MedalsResponseModel>
 {

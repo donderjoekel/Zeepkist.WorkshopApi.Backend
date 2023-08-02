@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Zeepkist.WorkshopApi.Db;
-using Zeepkist.WorkshopApi.RequestModels;
-using Zeepkist.WorkshopApi.ResponseModels;
+using TNRD.Zeepkist.WorkshopApi.Db;
+using TNRD.Zeepkist.WorkshopApi.RequestModels;
+using TNRD.Zeepkist.WorkshopApi.ResponseModels;
 
-namespace Zeepkist.WorkshopApi.Endpoints.Files.GetAll;
+namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Files.GetAll;
 
 public class Endpoint : Endpoint<LimitOffsetRequestModel, IEnumerable<FileResponseModel>>
 {

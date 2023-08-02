@@ -1,6 +1,6 @@
 ﻿using FluentResults;
 
-namespace Zeepkist.WorkshopApi.Google;
+namespace TNRD.Zeepkist.WorkshopApi.Google;
 
 public interface IUploadService
 {

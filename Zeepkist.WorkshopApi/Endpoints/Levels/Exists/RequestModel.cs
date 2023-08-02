@@ -1,4 +1,4 @@
-﻿namespace Zeepkist.WorkshopApi.Endpoints.Levels.Exists;
+﻿namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Levels.Exists;
 
 public class RequestModel
 {

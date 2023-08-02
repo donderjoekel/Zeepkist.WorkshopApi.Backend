@@ -1,4 +1,4 @@
-﻿namespace Zeepkist.WorkshopApi.ResponseModels;
+﻿namespace TNRD.Zeepkist.WorkshopApi.ResponseModels;
 
 public class MedalsResponseModel
 {

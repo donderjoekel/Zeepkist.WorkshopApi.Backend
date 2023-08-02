@@ -1,12 +1,11 @@
 ﻿using System.Net;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Zeepkist.WorkshopApi.Db;
-using Zeepkist.WorkshopApi.Db.Models;
-using Zeepkist.WorkshopApi.RequestModels;
-using Zeepkist.WorkshopApi.ResponseModels;
+using TNRD.Zeepkist.WorkshopApi.Db;
+using TNRD.Zeepkist.WorkshopApi.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.ResponseModels;
 
-namespace Zeepkist.WorkshopApi.Endpoints.Authors.Post;
+namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Authors.Post;
 
 public class Endpoint : Endpoint<RequestModel, AuthorResponseModel>
 {

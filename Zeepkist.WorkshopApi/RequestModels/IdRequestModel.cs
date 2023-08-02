@@ -1,4 +1,4 @@
-﻿namespace Zeepkist.WorkshopApi.RequestModels;
+﻿namespace TNRD.Zeepkist.WorkshopApi.RequestModels;
 
 public class IdRequestModel
 {

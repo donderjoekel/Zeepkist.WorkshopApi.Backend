@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
-using FastEndpoints;
 
-namespace Zeepkist.WorkshopApi.RequestModels;
+namespace TNRD.Zeepkist.WorkshopApi.RequestModels;
 
 public class LimitOffsetRequestModel
 {

@@ -1,4 +1,4 @@
-﻿namespace Zeepkist.WorkshopApi.Endpoints.Files.Post;
+﻿namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Files.Post;
 
 public class RequestModel
 {

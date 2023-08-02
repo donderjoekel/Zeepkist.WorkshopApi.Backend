@@ -1,6 +1,6 @@
 using FluentValidation.Results;
 
-namespace Zeepkist.WorkshopApi.Extensions;
+namespace TNRD.Zeepkist.WorkshopApi.Extensions;
 
 public class ValidationResponse
 {

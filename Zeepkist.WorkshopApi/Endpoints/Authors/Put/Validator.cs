@@ -1,7 +1,7 @@
-﻿using Zeepkist.WorkshopApi.RequestModels;
-using Zeepkist.WorkshopApi.ResponseModels;
+﻿using TNRD.Zeepkist.WorkshopApi.RequestModels;
+using TNRD.Zeepkist.WorkshopApi.ResponseModels;
 
-namespace Zeepkist.WorkshopApi.Endpoints.Authors.Put;
+namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Authors.Put;
 
 public class Validator : Validator<PutRequestModel<AuthorResponseModel>>
 {

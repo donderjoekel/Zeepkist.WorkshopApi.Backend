@@ -1,4 +1,4 @@
-﻿namespace Zeepkist.WorkshopApi.Endpoints.MedalTimes.Post;
+﻿namespace TNRD.Zeepkist.WorkshopApi.Endpoints.MedalTimes.Post;
 
 public class RequestModel
 {

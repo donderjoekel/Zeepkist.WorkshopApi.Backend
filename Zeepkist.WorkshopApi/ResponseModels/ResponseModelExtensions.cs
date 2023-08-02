@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
-using Zeepkist.WorkshopApi.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.Db.Models;
 
-namespace Zeepkist.WorkshopApi.ResponseModels;
+namespace TNRD.Zeepkist.WorkshopApi.ResponseModels;
 
 public static class ResponseModelExtensions
 {
