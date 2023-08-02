@@ -21,6 +21,7 @@ public class Endpoint : Endpoint<RequestModel, FileResponseModel>
     public override void Configure()
     {
         Post("files");
+        Description(b => b.ExcludeFromDescription());
     }
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)

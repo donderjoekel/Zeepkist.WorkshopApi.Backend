@@ -17,6 +17,7 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
     public override void Configure()
     {
         Post("levels");
+        Description(b => b.ExcludeFromDescription());
     }
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)

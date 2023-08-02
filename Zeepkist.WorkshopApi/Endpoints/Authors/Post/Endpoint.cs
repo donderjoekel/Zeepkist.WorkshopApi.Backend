@@ -20,6 +20,7 @@ public class Endpoint : Endpoint<RequestModel, AuthorResponseModel>
     public override void Configure()
     {
         Post("authors");
+        Description(b => b.ExcludeFromDescription());
     }
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)

@@ -19,6 +19,7 @@ public class Endpoint : Endpoint<PutRequestModel<AuthorResponseModel>, AuthorRes
     public override void Configure()
     {
         Put("authors/{id}");
+        Description(b => b.ExcludeFromDescription());
     }
 
     public override async Task HandleAsync(PutRequestModel<AuthorResponseModel> req, CancellationToken ct)
