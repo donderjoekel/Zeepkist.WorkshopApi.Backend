@@ -70,11 +70,8 @@ app.UseFastEndpoints(options =>
     options.Serializer.Options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
 });
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseOpenApi();
-    app.UseSwaggerUi3(x => x.ConfigureDefaults());
-}
+app.UseOpenApi();
+app.UseSwaggerUi3(x => x.ConfigureDefaults());
 
 using (IServiceScope serviceScope = app.Services.CreateScope())
 {
