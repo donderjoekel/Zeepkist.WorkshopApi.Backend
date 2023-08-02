@@ -5,7 +5,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY "Zeepkist.WorkshopApi.csproj" .
+COPY "Zeepkist.WorkshopApi/Zeepkist.WorkshopApi.csproj" .
 RUN dotnet restore
 COPY . .
 WORKDIR /src
