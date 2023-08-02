@@ -17,6 +17,7 @@ public class Endpoint : Endpoint<RequestModel, MedalsResponseModel>
     public override void Configure()
     {
         Get("medals/exists");
+        Description(b => b.ExcludeFromDescription());
     }
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)

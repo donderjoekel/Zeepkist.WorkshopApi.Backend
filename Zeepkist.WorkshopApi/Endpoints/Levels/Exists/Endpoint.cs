@@ -17,6 +17,7 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
     public override void Configure()
     {
         Post("levels/exists");
+        Description(b => b.ExcludeFromDescription());
     }
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)
@@ -24,9 +25,9 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
         ulong workshopId = ulong.Parse(req.WorkshopId);
 
         LevelModel? model = await context.Levels.FirstOrDefaultAsync(x =>
-                x.Name == req.Name && 
-                x.Author == req.Author && 
-                x.File == req.File && 
+                x.Name == req.Name &&
+                x.Author == req.Author &&
+                x.File == req.File &&
                 x.Medals == req.Medals &&
                 x.WorkshopId == workshopId,
             ct);
