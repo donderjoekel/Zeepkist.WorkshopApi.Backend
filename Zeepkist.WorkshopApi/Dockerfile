@@ -5,15 +5,14 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY "Zeepkist.WorkshopApi.csproj" .
-RUN dotnet restore
+COPY ["Zeepkist.WorkshopApi/Zeepkist.WorkshopApi.csproj", "Zeepkist.WorkshopApi/"] 
+RUN dotnet restore "Zeepkist.WorkshopApi/Zeepkist.WorkshopApi.csproj"
 COPY . .
-WORKDIR /src
-RUN dotnet build -c Release -o /app/build
+WORKDIR "/src/Zeepkist.WorkshopApi"
+RUN dotnet build "Zeepkist.WorkshopApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
-WORKDIR "/src"
-RUN dotnet publish -c Release -o /app/publish
+RUN dotnet publish "Zeepkist.WorkshopApi.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
