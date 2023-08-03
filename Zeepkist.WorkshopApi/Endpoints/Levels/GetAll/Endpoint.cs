@@ -25,7 +25,6 @@ public class Endpoint : Endpoint<LimitOffsetRequestModel, IEnumerable<LevelRespo
         await SendOkAsync(await context.Levels
                 .Include(x => x.AuthorNavigation)
                 .Include(x => x.FileNavigation)
-                .Include(x => x.MedalsNavigation)
                 .Skip(req.Offset)
                 .Take(req.Limit)
                 .Select(x => x.ToResponseModel())

@@ -7,7 +7,11 @@ public class LevelResponseModel
     public string WorkshopId { get; set; } = null!;
     public AuthorResponseModel Author { get; set; } = null!;
     public FileResponseModel File { get; set; } = null!;
-    public MedalsResponseModel Medals { get; set; } = null!;
+    public bool Valid { get; set; }
+    public float Validation { get; set; }
+    public float Gold { get; set; }
+    public float Silver { get; set; }
+    public float Bronze { get; set; }
     public string ImageUrl { get; set; } = null!;
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }

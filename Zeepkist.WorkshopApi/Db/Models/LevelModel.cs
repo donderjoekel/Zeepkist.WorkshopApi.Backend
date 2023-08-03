@@ -20,9 +20,17 @@ public partial class LevelModel
 
     public decimal WorkshopId { get; set; }
 
+    public bool Valid { get; set; }
+
+    public float Validation { get; set; }
+
+    public float Gold { get; set; }
+
+    public float Silver { get; set; }
+
+    public float Bronze { get; set; }
+
     public virtual AuthorModel AuthorNavigation { get; set; } = null!;
 
     public virtual FileModel FileNavigation { get; set; } = null!;
-
-    public virtual MedalModel MedalsNavigation { get; set; } = null!;
 }

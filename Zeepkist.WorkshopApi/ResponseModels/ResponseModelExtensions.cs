@@ -29,12 +29,13 @@ public static class ResponseModelExtensions
             {
                 Id = level.File
             },
-            Medals = level.MedalsNavigation?.ToResponseModel() ?? new MedalsResponseModel()
-            {
-                Id = level.Medals
-            },
             ImageUrl = level.Image,
             WorkshopId = level.WorkshopId.ToString(CultureInfo.InvariantCulture),
+            Valid = level.Valid,
+            Validation = level.Validation,
+            Gold = level.Gold,
+            Silver = level.Silver,
+            Bronze = level.Bronze,
             CreatedAt = level.CreatedAt,
             UpdatedAt = level.UpdatedAt
         };
@@ -49,31 +50,6 @@ public static class ResponseModelExtensions
             Url = file.Url,
             Author = file.Author,
             Uid = file.Uid
-        };
-    }
-
-    public static MedalsResponseModel ToResponseModel(this MedalModel medalTimes)
-    {
-        return new MedalsResponseModel()
-        {
-            Id = medalTimes.Id,
-            IsValid = medalTimes.IsValid,
-            Validation = medalTimes.Validation,
-            Gold = medalTimes.Gold,
-            Silver = medalTimes.Silver,
-            Bronze = medalTimes.Bronze
-        };
-    }
-
-    public static MedalModel ToModel(this MedalsResponseModel responseModel)
-    {
-        return new MedalModel()
-        {
-            Id = responseModel.Id,
-            Validation = responseModel.Validation,
-            Gold = responseModel.Gold,
-            Silver = responseModel.Silver,
-            Bronze = responseModel.Bronze
         };
     }
 }
