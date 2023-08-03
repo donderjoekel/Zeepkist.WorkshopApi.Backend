@@ -22,13 +22,19 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)
     {
+        const float tolerance = 0.0001f;
+
         ulong workshopId = ulong.Parse(req.WorkshopId);
 
         LevelModel? model = await context.Levels.FirstOrDefaultAsync(x =>
                 x.Name == req.Name &&
                 x.Author == req.Author &&
                 x.File == req.File &&
-                x.Medals == req.Medals &&
+                x.Valid == req.Valid &&
+                Math.Abs(x.Validation - req.Validation) < tolerance &&
+                Math.Abs(x.Gold - req.Gold) < tolerance &&
+                Math.Abs(x.Silver - req.Silver) < tolerance &&
+                Math.Abs(x.Bronze - req.Bronze) < tolerance &&
                 x.WorkshopId == workshopId,
             ct);
 

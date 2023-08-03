@@ -13,7 +13,10 @@ public class Validator : Validator<RequestModel>
         RuleFor(x => x.ImageUrl).NotNull().NotEmpty();
         RuleFor(x => x.Author).GreaterThanOrEqualTo(0);
         RuleFor(x => x.File).GreaterThanOrEqualTo(0);
-        RuleFor(x => x.Medals).GreaterThanOrEqualTo(0);
+        RuleFor(x => x.Validation).GreaterThanOrEqualTo(0);
+        RuleFor(x => x.Gold).GreaterThanOrEqualTo(0);
+        RuleFor(x => x.Silver).GreaterThanOrEqualTo(0);
+        RuleFor(x => x.Bronze).GreaterThanOrEqualTo(0);
         RuleFor(x => x.CreatedAt).NotNull().NotEmpty();
         RuleFor(x => x.UpdatedAt).NotNull().NotEmpty();
     }

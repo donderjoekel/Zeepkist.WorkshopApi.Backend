@@ -10,8 +10,6 @@ public partial class LevelModel
 
     public int File { get; set; }
 
-    public int Medals { get; set; }
-
     public string Image { get; set; } = null!;
 
     public DateTime CreatedAt { get; set; }

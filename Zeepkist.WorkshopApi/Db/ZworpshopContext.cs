@@ -65,7 +65,6 @@ public partial class ZworpshopContext : DbContext
             entity.Property(e => e.File).HasColumnName("file");
             entity.Property(e => e.Gold).HasColumnName("gold");
             entity.Property(e => e.Image).HasColumnName("image");
-            entity.Property(e => e.Medals).HasColumnName("medals");
             entity.Property(e => e.Name).HasColumnName("name");
             entity.Property(e => e.Silver).HasColumnName("silver");
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");

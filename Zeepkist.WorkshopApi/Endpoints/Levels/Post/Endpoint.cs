@@ -26,12 +26,16 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
         {
             Author = req.Author,
             File = req.File,
-            Medals = req.Medals,
             Name = req.Name,
             Image = req.ImageUrl,
             CreatedAt = req.CreatedAt,
             UpdatedAt = req.UpdatedAt,
-            WorkshopId = ulong.Parse(req.WorkshopId)
+            WorkshopId = ulong.Parse(req.WorkshopId),
+            Valid = req.Valid,
+            Validation = req.Validation,
+            Gold = req.Gold,
+            Silver = req.Silver,
+            Bronze = req.Bronze
         };
 
         EntityEntry<LevelModel> entry = await context.Levels.AddAsync(model, ct);
