@@ -25,11 +25,13 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
         ulong id = ulong.Parse(req.Id);
         List<LevelModel> result = await context.Levels.AsNoTracking().Where(x => x.WorkshopId == id).ToListAsync(ct);
 
-        if (result.Count == 0)
+        if (result.Count > 0)
+        {
+            await SendOkAsync(result.Select(x => x.ToResponseModel()), ct);
+        }
+        else
         {
             await SendNotFoundAsync(ct);
         }
-        
-        await SendOkAsync(result.Select(x => x.ToResponseModel()), ct);
     }
 }
