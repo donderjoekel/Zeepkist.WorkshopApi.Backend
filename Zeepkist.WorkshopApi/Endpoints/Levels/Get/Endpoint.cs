@@ -23,7 +23,7 @@ public class Endpoint : Endpoint<IdRequestModel, LevelResponseModel>
 
     public override async Task HandleAsync(IdRequestModel req, CancellationToken ct)
     {
-        LevelModel? result = await context.Levels.FirstOrDefaultAsync(x => x.Id == req.Id, ct);
+        LevelModel? result = await context.Levels.AsNoTracking().FirstOrDefaultAsync(x => x.Id == req.Id, ct);
 
         if (result != null)
         {

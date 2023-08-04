@@ -23,6 +23,7 @@ public class Endpoint : Endpoint<LimitOffsetRequestModel, IEnumerable<AuthorResp
     public override async Task HandleAsync(LimitOffsetRequestModel req, CancellationToken ct)
     {
         await SendOkAsync(await context.Authors
+                .AsNoTracking()
                 .OrderBy(x => x.Id)
                 .Skip(req.Offset)
                 .Take(req.Limit)

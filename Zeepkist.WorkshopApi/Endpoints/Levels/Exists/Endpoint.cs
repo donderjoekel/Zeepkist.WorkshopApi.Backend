@@ -26,7 +26,7 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
 
         ulong workshopId = ulong.Parse(req.WorkshopId);
 
-        LevelModel? model = await context.Levels.FirstOrDefaultAsync(x =>
+        LevelModel? model = await context.Levels.AsNoTracking().FirstOrDefaultAsync(x =>
                 x.Name == req.Name &&
                 x.Author == req.Author &&
                 x.File == req.File &&

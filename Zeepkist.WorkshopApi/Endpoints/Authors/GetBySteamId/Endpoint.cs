@@ -23,7 +23,7 @@ public class Endpoint : Endpoint<RequestModel, AuthorResponseModel>
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)
     {
         ulong steamId = ulong.Parse(req.Id);
-        AuthorModel? model = await context.Authors.FirstOrDefaultAsync(x => x.SteamId == steamId, ct);
+        AuthorModel? model = await context.Authors.AsNoTracking().FirstOrDefaultAsync(x => x.SteamId == steamId, ct);
 
         if (model != null)
         {

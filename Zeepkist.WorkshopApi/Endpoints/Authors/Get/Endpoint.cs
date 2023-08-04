@@ -23,7 +23,7 @@ public class Endpoint : Endpoint<IdRequestModel, AuthorResponseModel>
 
     public override async Task HandleAsync(IdRequestModel req, CancellationToken ct)
     {
-        AuthorModel? result = await context.Authors.FirstOrDefaultAsync(x => x.Id == req.Id, ct);
+        AuthorModel? result = await context.Authors.AsNoTracking().FirstOrDefaultAsync(x => x.Id == req.Id, ct);
 
         if (result != null)
         {

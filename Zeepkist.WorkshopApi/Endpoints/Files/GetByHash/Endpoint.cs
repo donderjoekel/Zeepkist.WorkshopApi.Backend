@@ -22,7 +22,7 @@ public class Endpoint : Endpoint<RequestModel, FileResponseModel>
     
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)
     {
-        FileModel? result = await context.Files.FirstOrDefaultAsync(x => x.Hash == req.Hash, ct);
+        FileModel? result = await context.Files.AsNoTracking().FirstOrDefaultAsync(x => x.Hash == req.Hash, ct);
 
         if (result != null)
         {

@@ -23,8 +23,10 @@ public class Endpoint : Endpoint<LimitOffsetRequestModel, IEnumerable<LevelRespo
     public override async Task HandleAsync(LimitOffsetRequestModel req, CancellationToken ct)
     {
         await SendOkAsync(await context.Levels
+                .AsNoTracking()
                 .Include(x => x.AuthorNavigation)
                 .Include(x => x.FileNavigation)
+                .OrderBy(x => x.Id)
                 .Skip(req.Offset)
                 .Take(req.Limit)
                 .Select(x => x.ToResponseModel())
