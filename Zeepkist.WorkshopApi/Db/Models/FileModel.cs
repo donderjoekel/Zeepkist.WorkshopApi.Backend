@@ -12,5 +12,7 @@ public partial class FileModel
 
     public string Uid { get; set; } = null!;
 
+    public decimal ModioId { get; set; }
+
     public virtual ICollection<LevelModel> Levels { get; set; } = new List<LevelModel>();
 }

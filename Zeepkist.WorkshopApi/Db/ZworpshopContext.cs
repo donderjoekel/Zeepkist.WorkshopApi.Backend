@@ -31,6 +31,7 @@ public partial class ZworpshopContext : DbContext
                 .HasColumnName("id");
             entity.Property(e => e.Author).HasColumnName("author");
             entity.Property(e => e.Hash).HasColumnName("hash");
+            entity.Property(e => e.ModioId).HasColumnName("modio_id");
             entity.Property(e => e.Uid).HasColumnName("uid");
             entity.Property(e => e.Url).HasColumnName("url");
         });
@@ -50,6 +51,7 @@ public partial class ZworpshopContext : DbContext
             entity.Property(e => e.File).HasColumnName("file");
             entity.Property(e => e.Gold).HasColumnName("gold");
             entity.Property(e => e.Image).HasColumnName("image");
+            entity.Property(e => e.ModioId).HasColumnName("modio_id");
             entity.Property(e => e.Name).HasColumnName("name");
             entity.Property(e => e.Silver).HasColumnName("silver");
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
@@ -59,7 +61,6 @@ public partial class ZworpshopContext : DbContext
 
             entity.HasOne(d => d.FileNavigation).WithMany(p => p.Levels)
                 .HasForeignKey(d => d.File)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("levels_file_fkey");
         });
 

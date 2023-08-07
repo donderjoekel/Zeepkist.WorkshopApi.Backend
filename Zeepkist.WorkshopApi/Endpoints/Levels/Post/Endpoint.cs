@@ -35,7 +35,8 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
             Validation = req.Validation,
             Gold = req.Gold,
             Silver = req.Silver,
-            Bronze = req.Bronze
+            Bronze = req.Bronze,
+            ModioId = req.ModioId
         };
 
         EntityEntry<LevelModel> entry = await context.Levels.AddAsync(model, ct);

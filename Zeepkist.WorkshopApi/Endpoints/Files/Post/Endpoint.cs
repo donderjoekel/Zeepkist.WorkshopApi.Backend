@@ -47,7 +47,8 @@ public class Endpoint : Endpoint<RequestModel, FileResponseModel>
             Hash = req.Hash,
             Url = result.Value,
             Uid = req.Uid,
-            Author = req.Author
+            Author = req.Author,
+            ModioId = req.ModioId
         };
 
         EntityEntry<FileModel> entry = context.Files.Add(model);

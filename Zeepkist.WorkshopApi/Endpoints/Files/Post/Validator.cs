@@ -8,5 +8,6 @@ public class Validator : Validator<RequestModel>
         RuleFor(x => x.Data).NotNull().NotEmpty();
         RuleFor(x => x.Uid).NotNull().NotEmpty();
         RuleFor(x => x.Author).NotNull().NotEmpty();
+        RuleFor(x => x.ModioId).GreaterThanOrEqualTo(0);
     }
 }

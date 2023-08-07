@@ -5,6 +5,7 @@ public class RequestModel
     public string Name { get; set; } = null!;
     public string WorkshopId { get; set; } = null!;
     public string AuthorId { get; set; } = null!;
+    public decimal ModioId { get; set; }
     public int File { get; set; }
     public string ImageUrl { get; set; } = null!;
     public bool Valid { get; set; }

@@ -9,6 +9,7 @@ public class Validator : Validator<RequestModel>
         RuleFor(x => x.Name).NotNull().NotEmpty();
         RuleFor(x => x.WorkshopId).NotNull().NotEmpty().IsUnsignedLong();
         RuleFor(x => x.AuthorId).NotNull().NotEmpty().IsUnsignedLong();
+        RuleFor(x => x.ModioId).GreaterThanOrEqualTo(0);
         RuleFor(x => x.ImageUrl).NotNull().NotEmpty();
         RuleFor(x => x.File).GreaterThanOrEqualTo(0);
         RuleFor(x => x.Validation).GreaterThanOrEqualTo(0);

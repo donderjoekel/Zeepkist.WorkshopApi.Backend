@@ -28,5 +28,7 @@ public partial class LevelModel
 
     public decimal AuthorId { get; set; }
 
+    public decimal ModioId { get; set; }
+
     public virtual FileModel FileNavigation { get; set; } = null!;
 }

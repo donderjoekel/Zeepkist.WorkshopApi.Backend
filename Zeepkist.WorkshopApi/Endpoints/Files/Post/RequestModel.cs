@@ -6,4 +6,5 @@ public class RequestModel
     public byte[] Data { get; set; } = null!;
     public string Uid { get; set; } = null!;
     public string Author { get; set; } = null!;
+    public decimal ModioId { get; set; }
 }
