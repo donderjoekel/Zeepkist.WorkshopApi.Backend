@@ -14,27 +14,12 @@ public partial class ZworpshopContext : DbContext
     {
     }
 
-    public virtual DbSet<AuthorModel> Authors { get; set; }
-
     public virtual DbSet<FileModel> Files { get; set; }
 
     public virtual DbSet<LevelModel> Levels { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<AuthorModel>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("authors_pkey");
-
-            entity.ToTable("authors");
-
-            entity.Property(e => e.Id)
-                .UseIdentityAlwaysColumn()
-                .HasColumnName("id");
-            entity.Property(e => e.DisplayName).HasColumnName("display_name");
-            entity.Property(e => e.SteamId).HasColumnName("steam_id");
-        });
-
         modelBuilder.Entity<FileModel>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("files_pkey");
@@ -59,7 +44,7 @@ public partial class ZworpshopContext : DbContext
             entity.Property(e => e.Id)
                 .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
-            entity.Property(e => e.Author).HasColumnName("author");
+            entity.Property(e => e.AuthorId).HasColumnName("author_id");
             entity.Property(e => e.Bronze).HasColumnName("bronze");
             entity.Property(e => e.CreatedAt).HasColumnName("created_at");
             entity.Property(e => e.File).HasColumnName("file");
@@ -71,11 +56,6 @@ public partial class ZworpshopContext : DbContext
             entity.Property(e => e.Valid).HasColumnName("valid");
             entity.Property(e => e.Validation).HasColumnName("validation");
             entity.Property(e => e.WorkshopId).HasColumnName("workshop_id");
-
-            entity.HasOne(d => d.AuthorNavigation).WithMany(p => p.Levels)
-                .HasForeignKey(d => d.Author)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("levels_author_fkey");
 
             entity.HasOne(d => d.FileNavigation).WithMany(p => p.Levels)
                 .HasForeignKey(d => d.File)

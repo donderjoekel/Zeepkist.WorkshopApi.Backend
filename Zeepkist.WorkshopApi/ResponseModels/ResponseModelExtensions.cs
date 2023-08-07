@@ -5,32 +5,19 @@ namespace TNRD.Zeepkist.WorkshopApi.ResponseModels;
 
 public static class ResponseModelExtensions
 {
-    public static AuthorResponseModel ToResponseModel(this AuthorModel author)
-    {
-        return new AuthorResponseModel
-        {
-            Id = author.Id,
-            Name = author.DisplayName,
-            SteamId = author.SteamId.ToString(CultureInfo.InvariantCulture)
-        };
-    }
-
     public static LevelResponseModel ToResponseModel(this LevelModel level)
     {
         return new LevelResponseModel
         {
             Id = level.Id,
             Name = level.Name,
-            Author = level.AuthorNavigation?.ToResponseModel() ?? new AuthorResponseModel()
-            {
-                Id = level.Author
-            },
             File = level.FileNavigation?.ToResponseModel() ?? new FileResponseModel()
             {
                 Id = level.File
             },
             ImageUrl = level.Image,
             WorkshopId = level.WorkshopId.ToString(CultureInfo.InvariantCulture),
+            AuthorId = level.AuthorId.ToString(CultureInfo.InvariantCulture),
             Valid = level.Valid,
             Validation = level.Validation,
             Gold = level.Gold,

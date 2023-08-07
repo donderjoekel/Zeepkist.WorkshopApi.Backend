@@ -25,17 +25,18 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
         const float tolerance = 0.0001f;
 
         ulong workshopId = ulong.Parse(req.WorkshopId);
+        ulong authorId = ulong.Parse(req.AuthorId);
 
         LevelModel? model = await context.Levels.AsNoTracking().FirstOrDefaultAsync(x =>
                 x.Name == req.Name &&
-                x.Author == req.Author &&
                 x.File == req.File &&
                 x.Valid == req.Valid &&
                 Math.Abs(x.Validation - req.Validation) < tolerance &&
                 Math.Abs(x.Gold - req.Gold) < tolerance &&
                 Math.Abs(x.Silver - req.Silver) < tolerance &&
                 Math.Abs(x.Bronze - req.Bronze) < tolerance &&
-                x.WorkshopId == workshopId,
+                x.WorkshopId == workshopId &&
+                x.AuthorId == authorId,
             ct);
 
         if (model != null)

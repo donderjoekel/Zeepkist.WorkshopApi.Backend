@@ -5,7 +5,7 @@ public class LevelResponseModel
     public int Id { get; set; }
     public string Name { get; set; } = null!;
     public string WorkshopId { get; set; } = null!;
-    public AuthorResponseModel Author { get; set; } = null!;
+    public string AuthorId { get; set; } = null!;
     public FileResponseModel File { get; set; } = null!;
     public bool Valid { get; set; }
     public float Validation { get; set; }

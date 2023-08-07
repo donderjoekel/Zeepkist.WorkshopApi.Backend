@@ -6,8 +6,6 @@ public partial class LevelModel
 
     public string Name { get; set; } = null!;
 
-    public int Author { get; set; }
-
     public int File { get; set; }
 
     public string Image { get; set; } = null!;
@@ -28,7 +26,7 @@ public partial class LevelModel
 
     public float Bronze { get; set; }
 
-    public virtual AuthorModel AuthorNavigation { get; set; } = null!;
+    public decimal AuthorId { get; set; }
 
     public virtual FileModel FileNavigation { get; set; } = null!;
 }

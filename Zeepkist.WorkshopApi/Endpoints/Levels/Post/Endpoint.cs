@@ -24,13 +24,13 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
     {
         LevelModel model = new()
         {
-            Author = req.Author,
             File = req.File,
             Name = req.Name,
             Image = req.ImageUrl,
             CreatedAt = req.CreatedAt,
             UpdatedAt = req.UpdatedAt,
             WorkshopId = ulong.Parse(req.WorkshopId),
+            AuthorId = ulong.Parse(req.AuthorId),
             Valid = req.Valid,
             Validation = req.Validation,
             Gold = req.Gold,
