@@ -14,28 +14,12 @@ public partial class ZworpshopContext : DbContext
     {
     }
 
-    public virtual DbSet<FileModel> Files { get; set; }
-
     public virtual DbSet<LevelModel> Levels { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<FileModel>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("files_pkey");
 
-            entity.ToTable("files");
-
-            entity.Property(e => e.Id)
-                .UseIdentityAlwaysColumn()
-                .HasColumnName("id");
-            entity.Property(e => e.Author).HasColumnName("author");
-            entity.Property(e => e.Hash).HasColumnName("hash");
-            entity.Property(e => e.ModioId).HasColumnName("modio_id");
-            entity.Property(e => e.Uid).HasColumnName("uid");
-            entity.Property(e => e.Url).HasColumnName("url");
-        });
-
+        
         modelBuilder.Entity<LevelModel>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("levels_pkey");
@@ -48,9 +32,12 @@ public partial class ZworpshopContext : DbContext
             entity.Property(e => e.AuthorId).HasColumnName("author_id");
             entity.Property(e => e.Bronze).HasColumnName("bronze");
             entity.Property(e => e.CreatedAt).HasColumnName("created_at");
-            entity.Property(e => e.File).HasColumnName("file");
+            entity.Property(e => e.FileAuthor).HasColumnName("file_author");
+            entity.Property(e => e.FileHash).HasColumnName("file_hash");
+            entity.Property(e => e.FileUid).HasColumnName("file_uid");
+            entity.Property(e => e.FileUrl).HasColumnName("file_url");
             entity.Property(e => e.Gold).HasColumnName("gold");
-            entity.Property(e => e.Image).HasColumnName("image");
+            entity.Property(e => e.ImageUrl).HasColumnName("image_url");
             entity.Property(e => e.ModioId).HasColumnName("modio_id");
             entity.Property(e => e.Name).HasColumnName("name");
             entity.Property(e => e.Silver).HasColumnName("silver");
@@ -58,10 +45,6 @@ public partial class ZworpshopContext : DbContext
             entity.Property(e => e.Valid).HasColumnName("valid");
             entity.Property(e => e.Validation).HasColumnName("validation");
             entity.Property(e => e.WorkshopId).HasColumnName("workshop_id");
-
-            entity.HasOne(d => d.FileNavigation).WithMany(p => p.Levels)
-                .HasForeignKey(d => d.File)
-                .HasConstraintName("levels_file_fkey");
         });
 
         OnModelCreatingPartial(modelBuilder);

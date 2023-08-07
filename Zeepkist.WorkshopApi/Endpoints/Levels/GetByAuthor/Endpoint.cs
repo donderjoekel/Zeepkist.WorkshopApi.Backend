@@ -3,7 +3,7 @@ using TNRD.Zeepkist.WorkshopApi.Db;
 using TNRD.Zeepkist.WorkshopApi.Db.Models;
 using TNRD.Zeepkist.WorkshopApi.ResponseModels;
 
-namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Levels.GetByWorkshopId;
+namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Levels.GetByAuthor;
 
 public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
 {
@@ -16,15 +16,15 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
 
     public override void Configure()
     {
-        Get("levels/workshop/{id}");
+        Get("levels/author/{id}");
         AllowAnonymous();
     }
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)
     {
-        ulong id = ulong.Parse(req.Id);
+        ulong authorId = ulong.Parse(req.Id);
         List<LevelModel> result = await context.Levels.AsNoTracking()
-            .Where(x => x.WorkshopId == id)
+            .Where(x=>x.AuthorId == authorId)
             .OrderBy(x => x.Id)
             .ToListAsync(ct);
 

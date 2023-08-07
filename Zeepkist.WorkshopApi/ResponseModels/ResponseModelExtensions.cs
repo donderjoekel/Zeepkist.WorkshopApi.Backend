@@ -10,33 +10,22 @@ public static class ResponseModelExtensions
         return new LevelResponseModel
         {
             Id = level.Id,
-            Name = level.Name,
-            File = level.FileNavigation?.ToResponseModel() ?? new FileResponseModel()
-            {
-                Id = level.File
-            },
-            ImageUrl = level.Image,
             WorkshopId = level.WorkshopId.ToString(CultureInfo.InvariantCulture),
             AuthorId = level.AuthorId.ToString(CultureInfo.InvariantCulture),
+            ModioId = level.ModioId.ToString(CultureInfo.InvariantCulture),
+            Name = level.Name,
+            CreatedAt = level.CreatedAt,
+            UpdatedAt = level.UpdatedAt,
+            ImageUrl = level.ImageUrl,
+            FileUrl = level.FileUrl,
+            FileUid = level.FileUid,
+            FileHash = level.FileHash,
+            FileAuthor = level.FileAuthor,
             Valid = level.Valid,
             Validation = level.Validation,
             Gold = level.Gold,
             Silver = level.Silver,
             Bronze = level.Bronze,
-            CreatedAt = level.CreatedAt,
-            UpdatedAt = level.UpdatedAt
-        };
-    }
-
-    public static FileResponseModel ToResponseModel(this FileModel file)
-    {
-        return new FileResponseModel()
-        {
-            Id = file.Id,
-            Hash = file.Hash,
-            Url = file.Url,
-            Author = file.Author,
-            Uid = file.Uid
         };
     }
 }

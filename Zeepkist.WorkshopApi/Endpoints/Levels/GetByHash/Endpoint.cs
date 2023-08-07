@@ -3,9 +3,9 @@ using TNRD.Zeepkist.WorkshopApi.Db;
 using TNRD.Zeepkist.WorkshopApi.Db.Models;
 using TNRD.Zeepkist.WorkshopApi.ResponseModels;
 
-namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Files.GetByHash;
+namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Levels.GetByHash;
 
-public class Endpoint : Endpoint<RequestModel, FileResponseModel>
+public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
 {
     private readonly ZworpshopContext context;
 
@@ -16,17 +16,20 @@ public class Endpoint : Endpoint<RequestModel, FileResponseModel>
 
     public override void Configure()
     {
-        Get("files/hash/{hash}");
+        Get("level/hash/{hash}");
         AllowAnonymous();
     }
-    
+
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)
     {
-        FileModel? result = await context.Files.AsNoTracking().FirstOrDefaultAsync(x => x.Hash == req.Hash, ct);
+        List<LevelModel> result = await context.Levels.AsNoTracking()
+            .Where(x => x.FileHash == req.Hash)
+            .OrderBy(x => x.Id)
+            .ToListAsync(ct);
 
-        if (result != null)
+        if (result.Count > 0)
         {
-            await SendOkAsync(result.ToResponseModel(), ct);
+            await SendOkAsync(result.Select(x => x.ToResponseModel()), ct);
         }
         else
         {

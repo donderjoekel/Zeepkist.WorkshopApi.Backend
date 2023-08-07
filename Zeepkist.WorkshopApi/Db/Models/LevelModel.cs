@@ -6,9 +6,7 @@ public partial class LevelModel
 
     public string Name { get; set; } = null!;
 
-    public int File { get; set; }
-
-    public string Image { get; set; } = null!;
+    public string ImageUrl { get; set; } = null!;
 
     public DateTime CreatedAt { get; set; }
 
@@ -30,5 +28,11 @@ public partial class LevelModel
 
     public decimal ModioId { get; set; }
 
-    public virtual FileModel FileNavigation { get; set; } = null!;
+    public string FileHash { get; set; } = null!;
+
+    public string FileUrl { get; set; } = null!;
+
+    public string FileAuthor { get; set; } = null!;
+
+    public string FileUid { get; set; } = null!;
 }

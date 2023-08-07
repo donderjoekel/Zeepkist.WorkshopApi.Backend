@@ -24,19 +24,22 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
     {
         LevelModel model = new()
         {
-            File = req.File,
-            Name = req.Name,
-            Image = req.ImageUrl,
-            CreatedAt = req.CreatedAt,
-            UpdatedAt = req.UpdatedAt,
             WorkshopId = ulong.Parse(req.WorkshopId),
             AuthorId = ulong.Parse(req.AuthorId),
+            ModioId = ulong.Parse(req.ModioId),
+            Name = req.Name,
+            CreatedAt = req.CreatedAt,
+            UpdatedAt = req.UpdatedAt,
+            ImageUrl = req.ImageUrl,
+            FileUrl = req.FileUrl,
+            FileUid = req.FileUid,
+            FileHash = req.FileHash,
+            FileAuthor = req.FileAuthor,
             Valid = req.Valid,
             Validation = req.Validation,
             Gold = req.Gold,
             Silver = req.Silver,
-            Bronze = req.Bronze,
-            ModioId = req.ModioId
+            Bronze = req.Bronze
         };
 
         EntityEntry<LevelModel> entry = await context.Levels.AddAsync(model, ct);

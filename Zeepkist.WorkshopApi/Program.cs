@@ -79,10 +79,3 @@ using (IServiceScope serviceScope = app.Services.CreateScope())
 }
 
 await app.RunAsync();
-
-namespace TNRD.Zeepkist.WorkshopApi
-{
-    public partial class Program
-    {
-    }
-}

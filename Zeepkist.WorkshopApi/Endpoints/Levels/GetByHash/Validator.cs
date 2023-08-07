@@ -1,4 +1,4 @@
-﻿namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Files.GetByHash;
+﻿namespace TNRD.Zeepkist.WorkshopApi.Endpoints.Levels.GetByHash;
 
 public class Validator : Validator<RequestModel>
 {

@@ -24,7 +24,6 @@ public class Endpoint : Endpoint<LimitOffsetRequestModel, IEnumerable<LevelRespo
     {
         await SendOkAsync(await context.Levels
                 .AsNoTracking()
-                .Include(x => x.FileNavigation)
                 .OrderBy(x => x.Id)
                 .Skip(req.Offset)
                 .Take(req.Limit)
