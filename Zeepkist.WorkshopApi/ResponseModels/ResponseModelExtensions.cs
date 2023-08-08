@@ -12,7 +12,6 @@ public static class ResponseModelExtensions
             Id = level.Id,
             WorkshopId = level.WorkshopId.ToString(CultureInfo.InvariantCulture),
             AuthorId = level.AuthorId.ToString(CultureInfo.InvariantCulture),
-            ModioId = level.ModioId.ToString(CultureInfo.InvariantCulture),
             Name = level.Name,
             CreatedAt = level.CreatedAt,
             UpdatedAt = level.UpdatedAt,

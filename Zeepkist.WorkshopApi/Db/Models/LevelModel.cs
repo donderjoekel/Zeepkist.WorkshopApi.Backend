@@ -26,8 +26,6 @@ public partial class LevelModel
 
     public decimal AuthorId { get; set; }
 
-    public decimal ModioId { get; set; }
-
     public string FileHash { get; set; } = null!;
 
     public string FileUrl { get; set; } = null!;

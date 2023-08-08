@@ -26,7 +26,6 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
         {
             WorkshopId = ulong.Parse(req.WorkshopId),
             AuthorId = ulong.Parse(req.AuthorId),
-            ModioId = ulong.Parse(req.ModioId),
             Name = req.Name,
             CreatedAt = req.CreatedAt,
             UpdatedAt = req.UpdatedAt,

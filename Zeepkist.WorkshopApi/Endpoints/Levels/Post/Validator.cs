@@ -8,7 +8,6 @@ public class Validator : Validator<RequestModel>
     {
         RuleFor(x => x.WorkshopId).NotNull().NotEmpty().IsUnsignedLong();
         RuleFor(x => x.AuthorId).NotNull().NotEmpty().IsUnsignedLong();
-        RuleFor(x => x.ModioId).NotNull().NotEmpty().IsUnsignedLong();
         RuleFor(x => x.Name).NotNull().NotEmpty();
         RuleFor(x => x.CreatedAt).NotNull().NotEmpty().GreaterThanOrEqualTo(new DateTime(2021, 1, 1));
         RuleFor(x => x.UpdatedAt).NotNull().NotEmpty().GreaterThanOrEqualTo(new DateTime(2021, 1, 1));
