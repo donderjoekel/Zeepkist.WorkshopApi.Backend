@@ -16,9 +16,9 @@ public class Validator : Validator<RequestModel>
         RuleFor(x => x.FileUid).NotNull().NotEmpty();
         RuleFor(x => x.FileHash).NotNull().NotEmpty();
         RuleFor(x => x.FileAuthor).NotNull().NotEmpty();
-        RuleFor(x => x.Validation).GreaterThanOrEqualTo(0);
-        RuleFor(x => x.Gold).GreaterThanOrEqualTo(0);
-        RuleFor(x => x.Silver).GreaterThanOrEqualTo(0);
-        RuleFor(x => x.Bronze).GreaterThanOrEqualTo(0);
+        RuleFor(x => x.Validation).NotNull().NotEmpty();
+        RuleFor(x => x.Gold).NotNull().NotEmpty();
+        RuleFor(x => x.Silver).NotNull().NotEmpty();
+        RuleFor(x => x.Bronze).NotNull().NotEmpty();
     }
 }
