@@ -16,7 +16,7 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
 
     public override void Configure()
     {
-        Get("level/hash/{hash}");
+        Get("levels/hash/{hash}");
         AllowAnonymous();
     }
 
