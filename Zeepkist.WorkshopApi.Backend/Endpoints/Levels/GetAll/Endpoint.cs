@@ -28,7 +28,7 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
 
         if (!req.IncludeReplaced)
         {
-            query = query.Where(x => x.ReplacedBy != null);
+            query = query.Where(x => x.ReplacedBy == null);
         }
 
         await SendOkAsync(await query
