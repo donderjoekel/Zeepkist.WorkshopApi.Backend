@@ -10,6 +10,7 @@ public static class ResponseModelExtensions
         return new LevelResponseModel
         {
             Id = level.Id,
+            ReplacedBy = level.ReplacedBy,
             WorkshopId = level.WorkshopId.ToString(CultureInfo.InvariantCulture),
             AuthorId = level.AuthorId.ToString(CultureInfo.InvariantCulture),
             Name = level.Name,
