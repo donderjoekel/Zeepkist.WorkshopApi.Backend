@@ -35,6 +35,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./Zeepkist.WorkshopApi/Dockerfile
+          file: ./Zeepkist.WorkshopApi.Backend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPO_NAME }}:latest
