@@ -33,4 +33,6 @@ public partial class LevelModel
     public string FileAuthor { get; set; } = null!;
 
     public string FileUid { get; set; } = null!;
+    
+    public int? ReplacedBy { get; set; }
 }

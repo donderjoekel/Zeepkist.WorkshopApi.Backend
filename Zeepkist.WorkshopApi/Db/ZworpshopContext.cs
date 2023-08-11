@@ -39,6 +39,7 @@ public partial class ZworpshopContext : DbContext
             entity.Property(e => e.Gold).HasColumnName("gold");
             entity.Property(e => e.ImageUrl).HasColumnName("image_url");
             entity.Property(e => e.Name).HasColumnName("name");
+            entity.Property(e => e.ReplacedBy).HasColumnName("replaced_by");
             entity.Property(e => e.Silver).HasColumnName("silver");
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
             entity.Property(e => e.Valid).HasColumnName("valid");
