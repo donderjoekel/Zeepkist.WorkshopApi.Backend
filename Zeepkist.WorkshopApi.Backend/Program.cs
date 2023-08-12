@@ -52,6 +52,8 @@ builder.Services.SwaggerDocument(o =>
 builder.Services.Configure<GoogleOptions>(builder.Configuration.GetSection("Google"));
 builder.Services.AddSingleton<IUploadService, CloudStorageUploadService>();
 
+builder.Services.AddCors();
+
 WebApplication app = builder.Build();
 
 if (app.Environment.IsDevelopment())
