@@ -69,6 +69,11 @@ app.UseFastEndpoints(options =>
     options.Serializer.Options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
 });
 
+app.UseCors(policyBuilder => policyBuilder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+
 app.UseOpenApi();
 app.UseSwaggerUi3(x => x.ConfigureDefaults());
 
