@@ -22,8 +22,15 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)
     {
-        List<LevelModel> result = await context.Levels.AsNoTracking()
-            .Where(x => x.FileHash == req.Hash)
+        IQueryable<LevelModel> query = context.Levels.AsNoTracking()
+            .Where(x => x.FileHash == req.Hash);
+
+        if (!req.IncludeReplaced)
+        {
+            query = query.Where(x => x.ReplacedBy == null);
+        }
+
+        List<LevelModel> result = await query
             .OrderBy(x => x.Id)
             .ToListAsync(ct);
 
