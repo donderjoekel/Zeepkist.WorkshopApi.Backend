@@ -5,5 +5,6 @@ namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Levels.GetAll;
 
 public class RequestModel : LimitOffsetRequestModel
 {
-    [QueryParam, DefaultValue(false)] public bool IncludeReplaced { get; set; } = false;
+    [QueryParam] [DefaultValue(false)] public bool IncludeReplaced { get; set; } = false;
+    [QueryParam] [DefaultValue(false)] public bool IncludeDeleted { get; set; } = false;
 }

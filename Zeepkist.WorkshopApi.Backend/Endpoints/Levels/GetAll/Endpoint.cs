@@ -31,6 +31,11 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
             query = query.Where(x => x.ReplacedBy == null);
         }
 
+        if (!req.IncludeDeleted)
+        {
+            query = query.Where(x => x.Deleted == false);
+        }
+
         await SendOkAsync(await query
                 .OrderBy(x => x.Id)
                 .Skip(req.Offset)

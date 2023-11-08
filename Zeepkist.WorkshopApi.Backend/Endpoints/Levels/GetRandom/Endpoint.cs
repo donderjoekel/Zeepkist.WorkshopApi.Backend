@@ -24,6 +24,7 @@ public class Endpoint : Endpoint<GetRandomRequestModel, IEnumerable<LevelRespons
     public override async Task HandleAsync(GetRandomRequestModel req, CancellationToken ct)
     {
         List<LevelModel> levels = await context.Levels.AsNoTracking()
+            .Where(x => x.ReplacedBy == null && x.Deleted == false)
             .OrderBy(x => EF.Functions.Random())
             .Take(req.Amount)
             .ToListAsync(ct);
