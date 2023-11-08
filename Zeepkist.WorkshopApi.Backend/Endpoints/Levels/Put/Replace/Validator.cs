@@ -1,4 +1,4 @@
-﻿namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Levels.Put;
+﻿namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Levels.Put.Replace;
 
 public class Validator : Validator<RequestModel>
 {

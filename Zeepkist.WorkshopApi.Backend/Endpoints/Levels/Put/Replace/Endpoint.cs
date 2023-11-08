@@ -3,7 +3,7 @@ using TNRD.Zeepkist.WorkshopApi.Backend.Db;
 using TNRD.Zeepkist.WorkshopApi.Backend.Db.Models;
 using TNRD.Zeepkist.WorkshopApi.Backend.ResponseModels;
 
-namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Levels.Put;
+namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Levels.Put.Replace;
 
 public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
 {
@@ -16,7 +16,7 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
 
     public override void Configure()
     {
-        Put("levels/{id}");
+        Put("levels/{id}/replace");
         Description(b => b.ExcludeFromDescription());
     }
 
