@@ -18,8 +18,6 @@ public partial class ZworpshopContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
-        
         modelBuilder.Entity<LevelModel>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("levels_pkey");
@@ -32,6 +30,7 @@ public partial class ZworpshopContext : DbContext
             entity.Property(e => e.AuthorId).HasColumnName("author_id");
             entity.Property(e => e.Bronze).HasColumnName("bronze");
             entity.Property(e => e.CreatedAt).HasColumnName("created_at");
+            entity.Property(e => e.Deleted).HasColumnName("deleted");
             entity.Property(e => e.FileAuthor).HasColumnName("file_author");
             entity.Property(e => e.FileHash).HasColumnName("file_hash");
             entity.Property(e => e.FileUid).HasColumnName("file_uid");

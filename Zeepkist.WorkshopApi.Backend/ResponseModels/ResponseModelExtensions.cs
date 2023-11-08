@@ -26,6 +26,7 @@ public static class ResponseModelExtensions
             Gold = level.Gold,
             Silver = level.Silver,
             Bronze = level.Bronze,
+            Deleted = level.Deleted,
         };
     }
 }

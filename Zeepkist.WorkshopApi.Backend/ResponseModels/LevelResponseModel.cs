@@ -4,6 +4,7 @@ public class LevelResponseModel
 {
     public int Id { get; set; }
     public int? ReplacedBy { get; set; }
+    public bool Deleted { get; set; }
     public string WorkshopId { get; set; } = null!;
     public string AuthorId { get; set; } = null!;
     public string Name { get; set; } = null!;
