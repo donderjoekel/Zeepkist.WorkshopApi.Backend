@@ -29,7 +29,7 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
             return;
         }
 
-        level.UpdatedAt = new DateTime(req.Ticks);
+        level.UpdatedAt = DateTimeOffset.FromUnixTimeSeconds(req.Ticks).UtcDateTime;
         await context.SaveChangesAsync(ct);
         await SendOkAsync(level.ToResponseModel(), ct);
     }
