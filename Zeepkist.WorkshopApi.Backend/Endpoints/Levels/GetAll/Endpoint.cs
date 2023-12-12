@@ -41,8 +41,8 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
             if (!long.TryParse(req.DateCreated, out long dateCreated))
                 ThrowError("Unable to parse date created. Is it in unix time seconds?");
 
-            DateTime utcDateTime = DateTimeOffset.FromUnixTimeSeconds(dateCreated).UtcDateTime;
-            query = query.Where(x => x.CreatedAt == utcDateTime);
+            DateTime utcDateTime = DateTimeOffset.FromUnixTimeSeconds(dateCreated).UtcDateTime.Date;
+            query = query.Where(x => x.CreatedAt.Date == utcDateTime);
         }
 
         if (!string.IsNullOrEmpty(req.DateUpdated))
@@ -50,8 +50,8 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
             if (!long.TryParse(req.DateUpdated, out long dateUpdated))
                 ThrowError("Unable to parse date updated. Is it in unix time seconds?");
 
-            DateTime utcDateTime = DateTimeOffset.FromUnixTimeSeconds(dateUpdated).UtcDateTime;
-            query = query.Where(x => x.UpdatedAt == utcDateTime);
+            DateTime utcDateTime = DateTimeOffset.FromUnixTimeSeconds(dateUpdated).UtcDateTime.Date;
+            query = query.Where(x => x.UpdatedAt.Date == utcDateTime);
         }
 
         await SendOkAsync(await query
