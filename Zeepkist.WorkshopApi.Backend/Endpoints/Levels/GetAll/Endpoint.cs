@@ -36,12 +36,30 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
             query = query.Where(x => x.Deleted == false);
         }
 
+        if (!string.IsNullOrEmpty(req.DateCreated))
+        {
+            if (!long.TryParse(req.DateCreated, out long dateCreated))
+                ThrowError("Unable to parse date created. Is it in unix time seconds?");
+
+            DateTime utcDateTime = DateTimeOffset.FromUnixTimeSeconds(dateCreated).UtcDateTime;
+            query = query.Where(x => x.CreatedAt == utcDateTime);
+        }
+
+        if (!string.IsNullOrEmpty(req.DateUpdated))
+        {
+            if (!long.TryParse(req.DateUpdated, out long dateUpdated))
+                ThrowError("Unable to parse date updated. Is it in unix time seconds?");
+
+            DateTime utcDateTime = DateTimeOffset.FromUnixTimeSeconds(dateUpdated).UtcDateTime;
+            query = query.Where(x => x.UpdatedAt == utcDateTime);
+        }
+
         await SendOkAsync(await query
                 .OrderBy(x => x.Id)
                 .Skip(req.Offset)
                 .Take(req.Limit)
                 .Select(x => x.ToResponseModel())
-                .ToListAsync(cancellationToken: ct),
+                .ToListAsync(ct),
             ct);
     }
 }
