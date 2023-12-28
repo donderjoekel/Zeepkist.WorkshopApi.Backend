@@ -1,3 +1,4 @@
+using System.Web;
 using Microsoft.EntityFrameworkCore;
 using TNRD.Zeepkist.WorkshopApi.Backend.Db;
 using TNRD.Zeepkist.WorkshopApi.Backend.Db.Models;
@@ -22,8 +23,10 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)
     {
+        string uid = HttpUtility.UrlDecode(req.Uid);
+
         IQueryable<LevelModel> query = context.Levels.AsNoTracking()
-            .Where(x => x.FileUid == req.Uid);
+            .Where(x => x.FileUid == uid);
 
         if (!req.IncludeReplaced)
         {
