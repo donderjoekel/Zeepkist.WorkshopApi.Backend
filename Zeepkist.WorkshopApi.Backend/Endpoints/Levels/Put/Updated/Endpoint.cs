@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.Database;
 using TNRD.Zeepkist.WorkshopApi.Backend.ResponseModels;
+using TNRD.Zeepkist.WorkshopApi.Database;
+using TNRD.Zeepkist.WorkshopApi.Database.Models;
 
 namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Levels.Put.Updated;
 
@@ -22,7 +23,7 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)
     {
-        LevelModel? level = await context.Levels.FirstOrDefaultAsync(x => x.Id == req.Id, ct);
+        Level? level = await context.Levels.FirstOrDefaultAsync(x => x.Id == req.Id, ct);
         if (level == null)
         {
             await SendNotFoundAsync(ct);

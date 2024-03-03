@@ -1,11 +1,11 @@
 ﻿using System.Globalization;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.Database.Models;
 
 namespace TNRD.Zeepkist.WorkshopApi.Backend.ResponseModels;
 
 public static class ResponseModelExtensions
 {
-    public static LevelResponseModel ToResponseModel(this LevelModel level)
+    public static LevelResponseModel ToResponseModel(this Level level)
     {
         return new LevelResponseModel
         {

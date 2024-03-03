@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.Database;
 using TNRD.Zeepkist.WorkshopApi.Backend.ResponseModels;
+using TNRD.Zeepkist.WorkshopApi.Database;
+using TNRD.Zeepkist.WorkshopApi.Database.Models;
 
 namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Levels.GetByHash;
 
@@ -22,7 +23,7 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)
     {
-        IQueryable<LevelModel> query = context.Levels.AsNoTracking()
+        IQueryable<Level> query = context.Levels.AsNoTracking()
             .Where(x => x.FileHash == req.Hash);
 
         if (!req.IncludeReplaced)
@@ -35,7 +36,7 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
             query = query.Where(x => x.Deleted == false);
         }
 
-        List<LevelModel> result = await query
+        List<Level> result = await query
             .OrderBy(x => x.Id)
             .ToListAsync(ct);
 

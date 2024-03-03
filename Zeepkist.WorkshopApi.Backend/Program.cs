@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Authentication;
 using NSwag;
 using Serilog;
 using TNRD.Zeepkist.WorkshopApi.Backend.Authentication;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db;
 using TNRD.Zeepkist.WorkshopApi.Backend.Extensions;
 using TNRD.Zeepkist.WorkshopApi.Backend.Google;
+using TNRD.Zeepkist.WorkshopApi.Database;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 

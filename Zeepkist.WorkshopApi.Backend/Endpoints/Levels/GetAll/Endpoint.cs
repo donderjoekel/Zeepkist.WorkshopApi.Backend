@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.Database;
 using TNRD.Zeepkist.WorkshopApi.Backend.RequestModels;
 using TNRD.Zeepkist.WorkshopApi.Backend.ResponseModels;
+using TNRD.Zeepkist.WorkshopApi.Database;
+using TNRD.Zeepkist.WorkshopApi.Database.Models;
 
 namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Levels.GetAll;
 
@@ -23,7 +24,7 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)
     {
-        IQueryable<LevelModel> query = context.Levels
+        IQueryable<Level> query = context.Levels
             .AsNoTracking();
 
         if (!req.IncludeReplaced)

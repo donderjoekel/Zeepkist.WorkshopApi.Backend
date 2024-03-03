@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.Database;
 using TNRD.Zeepkist.WorkshopApi.Backend.ResponseModels;
+using TNRD.Zeepkist.WorkshopApi.Database;
+using TNRD.Zeepkist.WorkshopApi.Database.Models;
 
 namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Levels.Post;
 
@@ -22,7 +23,7 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
 
     public override async Task HandleAsync(RequestModel req, CancellationToken ct)
     {
-        LevelModel model = new()
+        Level model = new()
         {
             WorkshopId = ulong.Parse(req.WorkshopId),
             AuthorId = ulong.Parse(req.AuthorId),
@@ -41,7 +42,7 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
             Bronze = req.Bronze
         };
 
-        EntityEntry<LevelModel> entry = await context.Levels.AddAsync(model, ct);
+        EntityEntry<Level> entry = await context.Levels.AddAsync(model, ct);
         await context.SaveChangesAsync(ct);
         await SendOkAsync(entry.Entity.ToResponseModel(), ct);
     }

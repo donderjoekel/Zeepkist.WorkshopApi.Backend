@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.Database;
 using TNRD.Zeepkist.WorkshopApi.Backend.ResponseModels;
+using TNRD.Zeepkist.WorkshopApi.Database;
+using TNRD.Zeepkist.WorkshopApi.Database.Models;
 
 namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Levels.GetByHashes;
 
@@ -24,7 +25,7 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
     {
         string[] hashes = req.Hashes.Split(',');
 
-        IQueryable<LevelModel>? query = context.Levels.AsNoTracking()
+        IQueryable<Level>? query = context.Levels.AsNoTracking()
             .Where(x => hashes.Contains(x.FileHash));
 
         if (!req.IncludeReplaced)
@@ -37,7 +38,7 @@ public class Endpoint : Endpoint<RequestModel, IEnumerable<LevelResponseModel>>
             query = query.Where(x => x.Deleted == false);
         }
 
-        List<LevelModel> result = await query.ToListAsync(ct);
+        List<Level> result = await query.ToListAsync(ct);
 
         await SendOkAsync(result.Select(x => x.ToResponseModel()), ct);
     }

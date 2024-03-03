@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db;
-using TNRD.Zeepkist.WorkshopApi.Backend.Db.Models;
+using TNRD.Zeepkist.WorkshopApi.Database;
 using TNRD.Zeepkist.WorkshopApi.Backend.RequestModels;
 using TNRD.Zeepkist.WorkshopApi.Backend.ResponseModels;
+using TNRD.Zeepkist.WorkshopApi.Database;
+using TNRD.Zeepkist.WorkshopApi.Database.Models;
 
 namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Levels.GetRandom;
 
@@ -23,7 +24,7 @@ public class Endpoint : Endpoint<GetRandomRequestModel, IEnumerable<LevelRespons
 
     public override async Task HandleAsync(GetRandomRequestModel req, CancellationToken ct)
     {
-        List<LevelModel> levels = await context.Levels.AsNoTracking()
+        List<Level> levels = await context.Levels.AsNoTracking()
             .Where(x => x.ReplacedBy == null && x.Deleted == false)
             .OrderBy(x => EF.Functions.Random())
             .Take(req.Amount)
@@ -33,7 +34,7 @@ public class Endpoint : Endpoint<GetRandomRequestModel, IEnumerable<LevelRespons
 
         while (levels.Count != req.Amount)
         {
-            List<LevelModel> extraLevels = await context.Levels.AsNoTracking()
+            List<Level> extraLevels = await context.Levels.AsNoTracking()
                 .OrderBy(x => EF.Functions.Random())
                 .Take(req.Amount)
                 .ToListAsync(ct);
