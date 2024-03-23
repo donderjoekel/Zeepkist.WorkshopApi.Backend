@@ -34,12 +34,7 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
             FileUrl = req.FileUrl,
             FileUid = req.FileUid,
             FileHash = req.FileHash,
-            FileAuthor = req.FileAuthor,
-            Valid = req.Valid,
-            Validation = req.Validation,
-            Gold = req.Gold,
-            Silver = req.Silver,
-            Bronze = req.Bronze
+            FileAuthor = req.FileAuthor
         };
 
         EntityEntry<Level> entry = await context.Levels.AddAsync(model, ct);
