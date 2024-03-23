@@ -12,7 +12,7 @@ public class Validator : Validator<RequestModel>
         RuleFor(x => x.Gold).NotNull();
         RuleFor(x => x.Silver).NotNull();
         RuleFor(x => x.Bronze).NotNull();
-        RuleFor(x => x.Ground).NotNull().GreaterThanOrEqualTo(0);
-        RuleFor(x => x.Skybox).NotNull().GreaterThanOrEqualTo(-1);
+        RuleFor(x => x.Ground).NotNull().GreaterThanOrEqualTo(-1);
+        RuleFor(x => x.Skybox).NotNull().GreaterThanOrEqualTo(0);
     }
 }
