@@ -21,11 +21,6 @@ public static class ResponseModelExtensions
             FileUid = level.FileUid,
             FileHash = level.FileHash,
             FileAuthor = level.FileAuthor,
-            Valid = level.Valid,
-            Validation = level.Validation,
-            Gold = level.Gold,
-            Silver = level.Silver,
-            Bronze = level.Bronze,
             Deleted = level.Deleted,
         };
     }
