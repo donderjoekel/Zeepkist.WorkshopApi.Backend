@@ -33,7 +33,8 @@ public class Endpoint : Endpoint<RequestModel, LevelResponseModel>
             FileUrl = req.FileUrl,
             FileUid = req.FileUid,
             FileHash = req.FileHash,
-            FileAuthor = req.FileAuthor
+            FileAuthor = req.FileAuthor,
+            MetadataId = req.MetadataId
         };
 
         EntityEntry<Level> entry = await context.Levels.AddAsync(model, ct);

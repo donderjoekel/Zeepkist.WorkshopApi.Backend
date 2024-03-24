@@ -16,5 +16,6 @@ public class Validator : Validator<RequestModel>
         RuleFor(x => x.FileUid).NotNull().NotEmpty();
         RuleFor(x => x.FileHash).NotNull().NotEmpty();
         RuleFor(x => x.FileAuthor).NotNull().NotEmpty();
+        RuleFor(x => x.MetadataId).NotNull().NotEmpty().GreaterThanOrEqualTo(0);
     }
 }

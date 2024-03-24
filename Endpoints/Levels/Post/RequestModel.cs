@@ -12,4 +12,5 @@ public class RequestModel
     public string FileUid { get; set; } = null!;
     public string FileHash { get; set; } = null!;
     public string FileAuthor { get; set; } = null!;
+    public int MetadataId { get; set; }
 }
