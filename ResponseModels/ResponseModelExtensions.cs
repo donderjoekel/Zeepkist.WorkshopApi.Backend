@@ -29,6 +29,7 @@ public static class ResponseModelExtensions
     {
         return new MetadataResponseModel
         {
+            Id = model.Id,
             Hash = model.Hash,
             Checkpoints = model.Checkpoints,
             Blocks = model.Blocks,

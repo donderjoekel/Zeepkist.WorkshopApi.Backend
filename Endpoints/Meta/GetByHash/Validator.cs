@@ -1,4 +1,4 @@
-﻿namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Meta.Get;
+﻿namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Meta.GetByHash;
 
 public class Validator : Validator<RequestModel>
 {

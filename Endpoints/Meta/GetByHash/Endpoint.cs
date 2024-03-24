@@ -1,30 +1,30 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TNRD.Zeepkist.WorkshopApi.Backend.RequestModels;
 using TNRD.Zeepkist.WorkshopApi.Backend.ResponseModels;
 using TNRD.Zeepkist.WorkshopApi.Database;
 using TNRD.Zeepkist.WorkshopApi.Database.Models;
 
-namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Meta.Get;
+namespace TNRD.Zeepkist.WorkshopApi.Backend.Endpoints.Meta.GetByHash;
 
-public class Endpoint : Endpoint<IdRequestModel, MetadataResponseModel>
+public class Endpoint : Endpoint<RequestModel, MetadataResponseModel>
 {
     private readonly ZworpshopContext context;
-    
+
     public Endpoint(ZworpshopContext context)
     {
         this.context = context;
     }
-    
+
     public override void Configure()
     {
-        Get("metadata/{id}");
+        Get("metadata/hash/{hash}");
         AllowAnonymous();
     }
 
-    public override async Task HandleAsync(IdRequestModel req, CancellationToken ct)
+    public override async Task HandleAsync(RequestModel req, CancellationToken ct)
     {
-        Metadata? result = await context.Metadata.AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Id == req.Id, ct);
+        Metadata? result = await context.Metadata
+            .AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Hash == req.Hash, ct);
 
         if (result != null)
         {
