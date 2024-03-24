@@ -22,6 +22,7 @@ public static class ResponseModelExtensions
             FileHash = model.FileHash,
             FileAuthor = model.FileAuthor,
             Deleted = model.Deleted,
+            MetadataId = model.MetadataId
         };
     }
     
