@@ -31,7 +31,8 @@ builder.Services.AddAuthentication(ApiKeyAuthentication.SCHEME)
     .AddScheme<AuthenticationSchemeOptions, ApiKeyAuthentication>(ApiKeyAuthentication.SCHEME, null);
 builder.Services.AddAuthorization();
 
-builder.Services.AddFastEndpoints(options => { options.SourceGeneratorDiscoveredTypes = new Type[] { }; });
+builder.Services.AddFastEndpoints(options =>{});
+// builder.Services.AddFastEndpoints(options => { options.SourceGeneratorDiscoveredTypes = new Type[] { }; });
 
 builder.Services.SwaggerDocument(o =>
 {
@@ -77,7 +78,9 @@ app.UseCors(policyBuilder => policyBuilder
     .AllowAnyHeader());
 
 app.UseOpenApi();
-app.UseSwaggerUi3(x => x.ConfigureDefaults());
+// app.UseSwaggerUi3()
+app.UseSwaggerUi(x => x.ConfigureDefaults());
+// app.UseSwaggerUi3(x => x.ConfigureDefaults());
 
 using (IServiceScope serviceScope = app.Services.CreateScope())
 {
