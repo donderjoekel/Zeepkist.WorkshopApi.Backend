@@ -21,7 +21,10 @@ builder.Host.UseConsoleLifetime(options => options.SuppressStatusMessages = true
 builder.Host.UseSerilog((context, configuration) =>
 {
     configuration
-        .MinimumLevel.Information()
+        .Enrich.FromLogContext()
+        .Enrich.WithProperty("Source", "Zworpshop.Api")
+        .MinimumLevel.Debug()
+        .WriteTo.Seq(context.Configuration["Seq:Url"], apiKey: context.Configuration["Seq:Key"])
         .WriteTo.Console();
 });
 

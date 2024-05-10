@@ -25,6 +25,7 @@
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
         <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+        <PackageReference Include="Serilog.Sinks.Seq" Version="7.0.1" />
         <PackageReference Include="TNRD.Zeepkist.WorkshopApi.Database" Version="3.0.0" />
     </ItemGroup>
     
